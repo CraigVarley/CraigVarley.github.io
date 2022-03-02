@@ -62,8 +62,8 @@ main.addEventListener('mousemove', e => {
   // rotate the box
   box1.style = "transform:rotateX(" + mousex + "deg) rotateY(" + mousey + "deg);";
   box2.style = "transform:rotateX(" + mousex + "deg) rotateY(" + mousey + "deg);";
-  dot1.style = "transform:translateX(" + mousey*3 + "px) translateY(" + mousex*3 + "px);";
-  dot2.style = "transform:translateX(" + mousey*3 + "px) translateY(" + mousex*3 + "px);";
+  dot1.style = "transform:translateX(" + mousey*2.6 + "px) translateY(" + mousex*2.6 + "px);";
+  dot2.style = "transform:translateX(" + mousey*2.6 + "px) translateY(" + mousex*2.6 + "px);";
 
   // box.style = "transform:rotateY(" + mousey + "deg);";
 
