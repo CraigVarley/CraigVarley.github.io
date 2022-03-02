@@ -1,0 +1,117 @@
+/* #container {
+  display:flex;
+  flex-direction: column;
+} */
+
+#main {
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height:100vh;
+  padding:0;
+  margin:0;
+  perspective: 300px;
+  transform-style: preserve-3d;
+}
+
+#boxes {
+  display: flex;
+  flex-direction: row;
+
+}
+
+
+.box {
+  width:200px;
+  height:200px;
+  border:3px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.dot {
+    background-color: black;
+    height: 30px;
+    width: 30px;
+    display: inline-block;
+    position: relative;
+    border-radius: 50%;
+    transform: translateZ(100px);
+}
+
+#text {
+  position: absolute;
+  width:200px;
+  margin-top:400px;
+  text-align: center;
+}
+
+
+.cube {
+  width:100%;
+  height:100%;
+  position:relative;
+  transform-style: preserve-3d;
+  font-family: sans-serif;
+  color:white;
+  text-align: center;
+  line-height: 100%;
+}
+
+.cube-animate {
+  animation:spin 8s linear infinite;
+}
+
+/* gotta put the opacity here not in .cube */
+.faces {
+  width:200px;
+  height:200px;
+  position:absolute;
+  border:1px black solid;
+  opacity:0.5;
+  font-family: sans-serif;
+  color:white;
+  text-align: center;
+  font-size:2em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#cube-front {
+  background-color: red;
+  transform: translateZ(100px);
+}
+
+#cube-back {
+  background-color: green;
+  transform:rotateY(180deg) translateZ(100px);
+}
+
+#cube-left {
+  background-color: yellow;
+  transform:rotateY(-90deg) translateZ(100px);
+}
+
+#cube-right {
+  background-color: blue;
+  transform:rotateY(90deg) translateZ(100px);
+}
+
+#cube-top {
+  background-color: aqua;
+  transform:rotateX(90deg) translateZ(100px);
+}
+
+#cube-bottom {
+  background-color: orange;
+  transform:rotateX(-90deg) translateZ(100px);
+}
+
+@keyframes spin {
+  from {transform:rotate3d(0,0,0,0);}
+  to {transform:rotate3d(0,1,0,360deg);}
+}
