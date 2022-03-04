@@ -7,10 +7,9 @@
   perspective:1000px;
   margin:200px auto;
   font-family: sans-serif;
-  color:white;
-  font-size: 150px;
+  color:black;
+  font-size: 25px;
   text-align: center;
-  line-height:100%;
   font-weight: bold;
 }
 
@@ -30,6 +29,7 @@
   background-color: hsl(213, 100%, 68%);
   border:2px solid gray;
   opacity:0.5;
+  margin:25px auto;
 }
 
 /* rotateY: 360/number of faces (14 here) */
