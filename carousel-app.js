@@ -17,10 +17,6 @@ carousel.addEventListener('click', function() {
 
 // let temperatureValue = document.querySelector("temperature-value");
 let faces = document.querySelector('#carousel').children;
-let currentTemp;
-let currentTempHtml;
-let currentTimeDescription;
-
 
 // on window load
 window.addEventListener("load", () => {
@@ -73,19 +69,21 @@ async function getLocationData(data) {
 async function getForecast(url) {
   fetchJson(url)
   .then(data => {
-    console.log(data); // check
-    // NWS returns an array of 1 week 12-hour weather forecasts, 14 forecasts in total, hence the 0 below
+    console.log(data); // check data if needed
+    // NWS returns an array of 1 week 12-hour weather forecasts, 14 forecasts in total
     getTemp(data);
   });
 };
 
+// gets the actual data and fills the html
 function getTemp(data) {
   for (let count = 0; count < 15; count++) {
-    currentTemp = data.properties.periods[count].temperature;
-    currentTempUnit = data.properties.periods[count].temperatureUnit;
-    currentTimeDescription = data.properties.periods[count].name;
+    let currentTemp = data.properties.periods[count].temperature;
+    let currentTempUnit = data.properties.periods[count].temperatureUnit;
+    let currentTimeDescription = data.properties.periods[count].name;
+    let currentForecast = data.properties.periods[count].detailedForecast;
     console.log(currentTemp);
-    faces[count].innerHTML = '<p>'+ currentTimeDescription + '</p><p>' + currentTemp + ' ' + currentTempUnit + '</p>'; // add temp to html
+    faces[count].innerHTML = '<p>'+ currentTimeDescription + '</p><p>' + currentTemp + ' ' + currentTempUnit + '</p><p id="forecast">' + currentForecast + '</p>'; // add temp to html
   }
 }
 

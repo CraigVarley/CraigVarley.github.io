@@ -8,7 +8,7 @@
   margin:200px auto;
   font-family: sans-serif;
   color:black;
-  font-size: 25px;
+  font-size: 20px;
   text-align: center;
   font-weight: bold;
 }
@@ -28,8 +28,18 @@
   height:150px;
   background-color: hsl(213, 100%, 68%);
   border:2px solid gray;
-  opacity:0.5;
-  margin:25px auto;
+  opacity:0.8;
+  padding-top:10px;
+}
+
+.face p {
+  margin:0;
+}
+
+#forecast {
+  margin:10px;
+  color:black;
+  font-size: 11px;
 }
 
 /* rotateY: 360/number of faces (14 here) */
