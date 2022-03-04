@@ -1,0 +1,51 @@
+/* modeled on https://3dtransforms.desandro.com/carousel */
+
+#stage {
+  width:200px;
+  height:150px;
+  position:relative;
+  perspective:1000px;
+  margin:200px auto;
+  font-family: sans-serif;
+  color:white;
+  font-size: 150px;
+  text-align: center;
+  line-height:100%;
+  font-weight: bold;
+}
+
+#carousel {
+  width:100%;
+  height:100%;
+  position:absolute;
+  transition:1s;
+  transform-style: preserve-3d;
+  cursor: pointer;
+}
+
+.face {
+  position:absolute;
+  width:200px;
+  height:150px;
+  background-color: hsl(213, 100%, 68%);
+  border:2px solid gray;
+  opacity:0.5;
+}
+
+/* rotateY: 360/number of faces (14 here) */
+/* translateX use some trig: T=O/A -> A=O/T -> radius=( (face width/2)/tan(rotateY angle) ) */
+/* so radius = 100px/tan(12.86deg) = 438px. */
+.face:nth-child(1) {transform: rotateY(0deg) translateZ(438px);}
+.face:nth-child(2) {transform: rotateY(25.71deg) translateZ(438px);}
+.face:nth-child(3) {transform: rotateY(51.42deg) translateZ(438px);}
+.face:nth-child(4) {transform: rotateY(77.14deg) translateZ(438px);}
+.face:nth-child(5) {transform: rotateY(102.85deg) translateZ(438px);}
+.face:nth-child(6) {transform: rotateY(128.56deg) translateZ(438px);}
+.face:nth-child(7) {transform: rotateY(154.27deg) translateZ(438px);}
+.face:nth-child(8) {transform: rotateY(179.98deg) translateZ(438px);}
+.face:nth-child(9) {transform: rotateY(205.69deg) translateZ(438px);}
+.face:nth-child(10) {transform: rotateY(231.4deg) translateZ(438px);}
+.face:nth-child(11) {transform: rotateY(257.11deg) translateZ(438px);}
+.face:nth-child(12) {transform: rotateY(282.82deg) translateZ(438px);}
+.face:nth-child(13) {transform: rotateY(308.53deg) translateZ(438px);}
+.face:nth-child(14) {transform: rotateY(334.24deg) translateZ(438px);}
