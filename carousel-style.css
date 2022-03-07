@@ -8,7 +8,7 @@
   margin:25px auto;
   text-align: center;
   font-family: sans-serif;
-  color: black)
+  color: black;
 }
 
 #mainText p:nth-child(1) {
@@ -21,6 +21,19 @@
   font-size:20px;
   font-family: 'Fugaz One', cursive;
   margin:0;
+}
+
+#mainText p:nth-child(3) {
+  font-size:15px;
+  font-family: 'Fugaz One', cursive;
+  margin:0;
+  margin-top:20px;
+
+}
+
+a {
+  color:hsl(203, 67%, 51%, 1);
+  text-decoration: none;
 }
 
 
