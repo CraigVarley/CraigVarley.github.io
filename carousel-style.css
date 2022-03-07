@@ -1,14 +1,38 @@
-/* modeled on https://3dtransforms.desandro.com/carousel */
+/* carousel based on https://3dtransforms.desandro.com/carousel */
+
+#body {
+  background-color: #ffdfb8;
+}
+
+#mainText {
+  margin:25px auto;
+  text-align: center;
+  font-family: sans-serif;
+  color: black)
+}
+
+#mainText p:nth-child(1) {
+  font-size: 50px;
+  font-family:'Bungee', cursive;
+  margin:0;
+}
+
+#mainText p:nth-child(2) {
+  font-size:20px;
+  font-family: 'Fugaz One', cursive;
+  margin:0;
+}
+
 
 #stage {
   width:200px;
   height:150px;
   position:relative;
   perspective:1000px;
-  margin:200px auto;
+  margin:100px auto;
   font-family: sans-serif;
   color:black;
-  font-size: 20px;
+  font-size: 12px;
   text-align: center;
   font-weight: bold;
 }
@@ -25,10 +49,9 @@
 .face {
   position:absolute;
   width:200px;
-  height:150px;
-  background-color: hsl(213, 100%, 68%);
-  border:2px solid gray;
-  opacity:0.8;
+  height:170px;
+  background-color: hsl(203, 67%, 51%, 0.6);
+  border:1px solid black;
   padding-top:10px;
 }
 
@@ -39,7 +62,8 @@
 #forecast {
   margin:10px;
   color:black;
-  font-size: 11px;
+  font-size: 10px;
+  font-weight:normal;
 }
 
 /* rotateY: 360/number of faces (14 here) */

@@ -76,14 +76,15 @@ async function getForecast(url) {
 };
 
 // gets the actual data and fills the html
-function getTemp(data) {
+async function getTemp(data) {
   for (let count = 0; count < 15; count++) {
     let currentTemp = data.properties.periods[count].temperature;
     let currentTempUnit = data.properties.periods[count].temperatureUnit;
     let currentTimeDescription = data.properties.periods[count].name;
+    let currentDate = data.properties.periods[count].endTime.substring(5,10);
     let currentForecast = data.properties.periods[count].detailedForecast;
-    console.log(currentTemp);
-    faces[count].innerHTML = '<p>'+ currentTimeDescription + '</p><p>' + currentTemp + ' ' + currentTempUnit + '</p><p id="forecast">' + currentForecast + '</p>'; // add temp to html
+    // console.log(currentTemp);
+    faces[count].innerHTML = '<p>'+ currentDate + '</p><p>' + currentTimeDescription + '</p><p>' + currentTemp + ' ' + currentTempUnit + '</p><p id="forecast">' + currentForecast + '</p>'; // add temp to html
   }
 }
 
