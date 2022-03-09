@@ -6,6 +6,10 @@ const carousel = document.querySelector('#carousel');
 const rotate = document.querySelector('.rotate');
 const face = document.querySelector('.face');
 let faceNumber = 1;
+const submit = document.querySelector('#cityName');
+
+// get city name from input
+// cityName.addEventListener('')
 
 // rotate carousel event
 carousel.addEventListener('click', function() {
