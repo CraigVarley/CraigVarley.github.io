@@ -1,7 +1,15 @@
+// url vars
 const urlBase = 'https://gateway.marvel.com:443/v1/public/comics?dateRange=';
-const publicKey = '&ts=1&apikey=dae4c1317b848eda146eb22581408a90&hash=8dd4442844cb9b218c781096e6511f78';
+const publicKey = 'dae4c1317b848eda146eb22581408a90';
+const privateKey = '8d39bee708b40dac6f4b2b33a19a6bbb3f111e3c';
+var timestamp = new Date().getTime();
+const hashString = timestamp + privateKey + publicKey;
+var md5 = CryptoJS.MD5(hashString).toString(); // see cryptojs script adsed in html
+var urlEnd = '&ts=' + timestamp + '&apikey=' + publicKey + '&hash=' + md5;
+// DOm vars
 const button = document.querySelector('#button');
 const input = document.querySelector('#date');
+const comic = document.querySelector("#comic");
 
 button.addEventListener('click', function() {
   // make the url
@@ -9,12 +17,15 @@ button.addEventListener('click', function() {
     let yearAndMonth = date.substring(0,7);
     let year = date.substring(0,4);
     let month = date.substring(5,7);
+    // see func below, this gets number of days in month
     let numberOfDays = daysInMonth(month,year);
     let dateRange = yearAndMonth + '-01,' + yearAndMonth + '-' + numberOfDays;
-    let finalUrl = urlBase + dateRange + publicKey;
+    let finalUrl = urlBase + dateRange + urlEnd;
     console.log(finalUrl);
     // get the data
-    fetchJson(finalUrl);
+    fetchJson(finalUrl)
+      .then(getComicCoverUrl)
+      .then(showComicCover)
 
     // https://gateway.marvel.com:443/v1/public/comics?dateRange=2013-01-03%2C%202013-01-03&apikey=dae4c1317b848eda146eb22581408a90
   // fetchJson(url);
@@ -23,11 +34,28 @@ button.addEventListener('click', function() {
 //basic fetch function called in event listener on search button
 async function fetchJson(url) {
     return await fetch(url)
-        .then(data => data.json())
-        .then(console.log(data))
+      .then(data => data.json())
 }
 
+// gets the jpg url from the json and return
+function getComicCoverUrl(data) {
+  // gets length of array then makes random number for cover
+  let marvelJson = data;
+  let comicCoverArray = marvelJson.data.results;
+  let comicCoverArrayLength = comicCoverArray.length;
+  // console.log('array length =' + comicCoverArrayLength);
+  let comicRandomItem = getRandomInt(comicCoverArrayLength);
+  let comicCoverPath = marvelJson.data.results[comicRandomItem].thumbnail.path;
+  let comicCoverUrl = comicCoverPath + '.jpg';
+  return comicCoverUrl;
+}
 
+// adds html to 
+function showComicCover(image) {
+  var cover = image;
+  console.log('cover: ' + cover);
+  comic.innerHTML = '<img id="comic-cover" src=' + cover + '></img>';
+}
 
 // get number of days in month for range search -  from https://stackoverflow.com/questions/1184334/get-number-days-in-a-specified-month-using-javascript
 // Month in JavaScript is 0-indexed (January is 0, February is 1, etc),
@@ -37,8 +65,10 @@ async function fetchJson(url) {
 function daysInMonth (month, year) {
     return new Date(year, month, 0).getDate();
 }
-// // July
+// example: July
 // daysInMonth(7,2009); // 31
-// // February
-// daysInMonth(2,2009); // 28
-// daysInMonth(2,2008); // 29
+
+//get random number
+function getRandomInt(max) {
+  return Math.floor(Math.random() * max);
+}

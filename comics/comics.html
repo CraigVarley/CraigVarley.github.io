@@ -2,34 +2,43 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="comics.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/core.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/md5.js"></script>
     <title>Comic API</title>
   </head>
   <body>
 
     <div id="main">
 
-      <div id="left">
+      <div id="top">
         <div id="banner">
-          <h1>BIRTH DAY COMIX</h1>
+          <h1>BIRTH DAY MARVEL</h1>
         </div>
-        <div id="search">
-          <input type="date" id="date" name="date"></input>
-        </div>
-        <div id="button">
-          <img src="splonk.jpg" alt="splonk! silly sound effect from an old comic book"></img>
-        </div>
+        <p class="text">SPLONK to get a Marvel comic cover from your birth day month. Keep SPLONKING for more</p>
+          <div id="search">
+            <input type="date" id="date" name="date"></input>
+          </div>
+          <div id="button">
+            <img src="splonk.jpg" alt="splonk! silly sound effect from an old comic book"></img>
+          </div>
       </div>
-  
 
-      <div id="right">
-        <div id="comic"></div>
+
+      <div id="bottom">
+        <div id="comic">
+          <!-- comic goes here -->
+        </div>
       </div>
+
+      <p class="text" id="attr-text">This site uses the Marvel API for fun. Data provided by Marvel. © 2014 Marvel. Site by Craig Varley.</p>
 
     </div>
+
     <script src="comics.js"></script>
   </body>
 </html>
