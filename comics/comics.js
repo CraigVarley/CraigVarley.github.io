@@ -43,17 +43,12 @@ function getComicCoverUrl(data) {
   let marvelJson = data;
   let comicCoverArray = marvelJson.data.results;
   let comicCoverArrayLength = comicCoverArray.length;
-  // console.log('array length =' + comicCoverArrayLength);
-  let comicRandomItem = getRandomInt(comicCoverArrayLength);
-  let comicCoverPath = marvelJson.data.results[comicRandomItem].thumbnail.path;
-  let comicCoverUrl = comicCoverPath + '.jpg';
-  return comicCoverUrl;
+  return  getExistingImage(comicCoverArrayLength, marvelJson);
 }
 
-// adds html to 
+// adds html to
 function showComicCover(image) {
-  var cover = image;
-  console.log('cover: ' + cover);
+  let cover = image;
   comic.innerHTML = '<img id="comic-cover" src=' + cover + '></img>';
 }
 
@@ -71,4 +66,12 @@ function daysInMonth (month, year) {
 //get random number
 function getRandomInt(max) {
   return Math.floor(Math.random() * max);
+}
+
+// get image path for cover
+function getExistingImage(comicCoverArrayLength, marvelJson) {
+  let comicRandomItem = getRandomInt(comicCoverArrayLength);
+  let comicCoverPath = marvelJson.data.results[comicRandomItem].thumbnail.path;
+  let comicCoverUrl = comicCoverPath + '.jpg';
+  return comicCoverUrl;
 }
