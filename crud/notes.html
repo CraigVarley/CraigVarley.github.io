@@ -2,9 +2,30 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" rel="stylesheet" href="notes.css">
     <title>in-browser notes app</title>
   </head>
   <body>
+
+    <div id="container">
+
+      <div class="notes-box" id="notes-box-selector">
+          <button type="button">NEW NOTE</button>
+      </div>
+
+      <div class="notes-box" id="notes-box-writer">
+        <input class="notes-content" id="notes-content-title" placeholder="NOTE TITLE"></input>
+
+        <textarea class="notes-content" id="notes-content-body">note body here</textarea>
+
+        <div class="notes-content" id="notes-content-timestamp">Last saved:</div>
+
+      </div>
+
+
+    </div>
+
 
   </body>
 </html>

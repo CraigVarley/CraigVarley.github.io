@@ -1,0 +1,38 @@
+body {
+  font-family: sans-serif;
+}
+
+#container {
+  max-width:1000px;
+  border:1px solid gray;
+  display:flex;
+  flex-direction: row;
+  min-height:98vh;
+  margin:0 auto;
+}
+
+.notes-box {
+  border:1px solid gray;
+  display: flex;
+  flex-direction: column;
+}
+
+#notes-box-selector {
+  flex:2;
+}
+
+#notes-box-writer {
+  flex:4;
+}
+
+#notes-content-title {
+  flex:1;
+}
+
+#notes-content-body {
+  flex:10;
+}
+
+#notes-content-timestamp {
+  flex:1;
+}
