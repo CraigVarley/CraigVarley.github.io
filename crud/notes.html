@@ -11,21 +11,21 @@
     <div id="container">
 
       <div class="notes-box" id="notes-box-selector">
-          <button type="button">NEW NOTE</button>
+          <button type="button" id="new-button">NEW NOTE</button>
+          <div id="notes-box-list">
+
+          </div>
       </div>
 
       <div class="notes-box" id="notes-box-writer">
-        <input class="notes-content" id="notes-content-title" placeholder="NOTE TITLE"></input>
-
-        <textarea class="notes-content" id="notes-content-body">note body here</textarea>
-
+        <input id="notes-content-title" placeholder="Title your note ..."></input>
+        <textarea id="notes-content-body" placeholder="Type your note ..."></textarea>
         <div class="notes-content" id="notes-content-timestamp">Last saved:</div>
-
       </div>
 
 
     </div>
 
-
+    <script src="notes-app.js"></script>
   </body>
 </html>
